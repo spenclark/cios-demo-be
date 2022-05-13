@@ -6,6 +6,14 @@ exports.up = function (knex) {
   return knex.schema.createTable("tenant", (table) => {
     table.uuid("id").unique();
     table.timestamp("created_at").defaultTo(knex.fn.now());
+    log
+      .integer("landlord_id")
+      .unsigned()
+      .notNullable()
+      .references("id")
+      .inTable("user")
+      .onUpdate("CASCADE")
+      .onDelete("CASCADE");
     table.float("amount_due_today");
     table.string("new_address");
     table.string("email").notNullable();
