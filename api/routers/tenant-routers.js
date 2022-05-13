@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const Tenant = require("./log-model.js");
+const Tenant = require("../models/tenant-model.js");
 
 router.get("/", (req, res) => {
   Tenant.find()
