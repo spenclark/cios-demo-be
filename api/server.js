@@ -9,7 +9,7 @@ server.use(cors());
 const tenantRouter = require("./routers/tenant-routers");
 server.use("/tenant", tenantRouter);
 
-const leadRouter = require("./routers/lead-routers");
+const leadRouter = require("./routers/lead-router");
 server.use("/lead", leadRouter);
 
 server.get("/api", (req, res) => {
