@@ -6,8 +6,9 @@ exports.up = function (knex) {
   return knex.schema.createTable("tenant", (table) => {
     table.uuid("id").unique();
     table.timestamp("created_at").defaultTo(knex.fn.now());
+    table.float("amount_due_today");
     table.string("new_address");
-    table.string("email", 128).notNullable();
+    table.string("email").notNullable();
     table.string("firstName");
     table.string("lastName");
 
